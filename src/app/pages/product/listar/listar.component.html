@@ -1,6 +1,7 @@
 <div class="fondo">
   <div class="contenido">
-    <input class="search-input" type="text" placeholder="Search..."  [(ngModel)]="searchText" (input)="filterProductos()">
+    <input class="search-input" type="text" placeholder="Search..." [(ngModel)]="searchText"
+           (input)="filterProductos()">
     <br>
     <div class="contenido_table">
       <table class="styled-table">
@@ -23,13 +24,14 @@
           <td>{{ producto.date_release }}</td>
           <td>{{ producto.date_revision }}</td>
         </tr>
-        <tr *ngIf="allProductos.data.length === 0">
+        <tr *ngIf="filteredProductos.length === 0">
           <td colspan="7" class="text-center">No hay datos para mostrar</td>
         </tr>
         </tbody>
-
-
       </table>
+      <div class="footerTable">
+        <label>{{ filteredProductos.length }} Resultados</label>
+      </div>
     </div>
   </div>
 </div>

@@ -20,7 +20,7 @@ export class ListarComponent implements OnInit {
   allProductos!:ProductResponse;
   filteredProductos: Product[] = [];
   searchText: string = '';
-  
+
 
   constructor(private producService: ProductService) {
   }
