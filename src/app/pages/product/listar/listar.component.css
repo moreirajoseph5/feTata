@@ -1,0 +1,112 @@
+.contenido{
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 55%;
+  padding: 55px 51px;
+  width: 100%;
+  flex-direction: column;
+
+}
+
+.contenido_table{
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 20px 20px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.descripcion {
+  font-family: "prelo-medium", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #6e6e73;
+}
+
+.descripcionHead {
+  font-family: "prelo-book", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #6e6e73;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  min-width: 800px;
+}
+
+.styled-table thead {
+  background-color: #f7f9fc;
+  text-align: left;
+}
+
+.styled-table thead th {
+  padding: 12px 16px;
+  font-weight: bold;
+  color: #6e6e73;
+  border-bottom: 1px solid #e0e0e0;
+  white-space: nowrap;
+}
+
+.styled-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #6e6e73;
+  white-space: nowrap;
+}
+
+.styled-table thead th .info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #b0b0b0;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 6px;
+}
+
+.logo-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e0e3ec;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.search-input{
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  max-width: 25%;
+  margin-block: 2%;
+}

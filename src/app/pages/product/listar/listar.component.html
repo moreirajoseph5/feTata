@@ -1,1 +1,35 @@
-<p>listar works!</p>
+<div class="fondo">
+  <div class="contenido">
+    <input class="search-input" type="text" placeholder="Search..."  [(ngModel)]="searchText" (input)="filterProductos()">
+    <br>
+    <div class="contenido_table">
+      <table class="styled-table">
+        <thead class="descripcionHead">
+        <tr>
+          <th>Logo</th>
+          <th>Nombre del producto</th>
+          <th>Descripción<span class="info-icon">i</span></th>
+          <th>Fecha de liberación<span class="info-icon">i</span></th>
+          <th>Fecha de reestructuración<span class="info-icon">i</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let producto of filteredProductos" class="descripcion">
+          <td>
+            <div class="logo-circle">JG</div>
+          </td>
+          <td>{{ producto.name }}</td>
+          <td>{{ producto.description }}</td>
+          <td>{{ producto.date_release }}</td>
+          <td>{{ producto.date_revision }}</td>
+        </tr>
+        <tr *ngIf="allProductos.data.length === 0">
+          <td colspan="7" class="text-center">No hay datos para mostrar</td>
+        </tr>
+        </tbody>
+
+
+      </table>
+    </div>
+  </div>
+</div>
