@@ -1,1 +1,62 @@
-<p>nuevo works!</p>
+<div class="fondo">
+  <div class="contenido ">
+    <div class="contenido_table">
+      <label class="title">Formulario de registro</label>
+      <hr>
+      <div class="form-container">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-grid">
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input type="text" id="id" formControlName="id"/>
+            <div class="error" *ngIf="form.get('id')?.touched && form.get('id')?.errors?.['required']">
+              El Id es requerido
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" formControlName="nombre"/>
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <input type="text" id="descripcion" formControlName="descripcion"/>
+            <div class="error"
+                 *ngIf="form.get('descripcion')?.touched && form.get('descripcion')?.errors?.['required']">
+              El Id es requerido
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="logo">Logo</label>
+            <input type="text" id="logo" formControlName="logo"/>
+            <div class="error" *ngIf="form.get('logo')?.touched && form.get('logo ')?.errors?.['required']">
+              El Id es requerido
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fechaLiberacion">Fecha liberación</label>
+            <input type="date" id="fechaLiberacion" formControlName="fechaLiberacion"/>
+          </div>
+
+          <div class="form-group">
+            <label for="fechaRevision">Fecha revisión</label>
+            <input type="date" id="fechaRevision" formControlName="fechaRevision"/>
+          </div>
+
+          <div class="form-group">
+            <button type="button" class="button" (click)="onReset()">Reiniciar</button>
+          </div>
+
+          <div class="form-group">
+            <button class="btnSave" type="submit">Enviar</button>
+          </div>
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>

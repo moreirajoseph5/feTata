@@ -1,7 +1,10 @@
 <div class="fondo">
-  <div class="contenido">
-    <input class="search-input" type="text" placeholder="Search..." [(ngModel)]="searchText"
-           (input)="filterProductos()">
+  <div class="contenido ">
+    <div class="toolbar">
+      <input class="search-input" type="text" placeholder="Search..." [(ngModel)]="searchText"
+             (input)="filterProductos()">
+      <button class="btnAdd" (click)="goNewproduct()">Agregar</button>
+    </div>
     <br>
     <div class="contenido_table">
       <table class="styled-table">

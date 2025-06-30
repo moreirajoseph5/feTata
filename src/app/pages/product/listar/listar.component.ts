@@ -4,6 +4,7 @@ import {ProductResponse} from '../../../shared/interfaces/product-response.intef
 import {NgForOf, NgIf} from '@angular/common';
 import {Product} from '../../../shared/interfaces/products.interface';
 import {FormsModule} from '@angular/forms';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-listar',
@@ -11,13 +12,13 @@ import {FormsModule} from '@angular/forms';
   imports: [
     NgForOf,
     NgIf,
-    FormsModule
+    FormsModule, RouterModule
   ],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
 export class ListarComponent implements OnInit {
-  allProductos!:ProductResponse;
+  allProductos!: ProductResponse;
   filteredProductos: Product[] = [];
   searchText: string = '';
 
@@ -25,8 +26,9 @@ export class ListarComponent implements OnInit {
   currentPage: number = 1;
   pagedProductos: Product[] = [];
 
-  constructor(private producService: ProductService) {
+  constructor(private producService: ProductService, private router: Router) {
   }
+
   ngOnInit(): void {
     this.getProductos();
   }
@@ -62,9 +64,14 @@ export class ListarComponent implements OnInit {
     this.pagedProductos = this.filteredProductos.slice(startIndex, endIndex);
     console.log('Mostrando:', this.pagedProductos);
   }
+
   onPageSizeChange(size: number): void {
     this.pageSize = +size;
     this.currentPage = 1;
     this.updatePagedProductos();
+  }
+
+  goNewproduct() {
+    this.router.navigate(['/newProduct']);
   }
 }
