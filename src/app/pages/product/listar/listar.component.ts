@@ -21,6 +21,9 @@ export class ListarComponent implements OnInit {
   filteredProductos: Product[] = [];
   searchText: string = '';
 
+  pageSize: number = 5; // Número seleccionado por el usuario
+  currentPage: number = 1;
+  pagedProductos: Product[] = [];
 
   constructor(private producService: ProductService) {
   }
@@ -33,6 +36,8 @@ export class ListarComponent implements OnInit {
       next: (productos) => {
         this.allProductos = productos;
         this.filteredProductos = productos.data;
+        this.updatePagedProductos();
+        console.log(this.filteredProductos);
       },
       error: (err) => {
         console.error('Error al obtener productos:', err);
@@ -47,5 +52,19 @@ export class ListarComponent implements OnInit {
         String(val).toLowerCase().includes(search)
       )
     );
+    this.currentPage = 1;
+    this.updatePagedProductos();
+  }
+
+  updatePagedProductos(): void {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.pagedProductos = this.filteredProductos.slice(startIndex, endIndex);
+    console.log('Mostrando:', this.pagedProductos);
+  }
+  onPageSizeChange(size: number): void {
+    this.pageSize = +size;
+    this.currentPage = 1;
+    this.updatePagedProductos();
   }
 }

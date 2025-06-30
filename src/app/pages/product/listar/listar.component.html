@@ -15,7 +15,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let producto of filteredProductos" class="descripcion">
+        <tr *ngFor="let producto of pagedProductos" class="descripcion">
           <td>
             <div class="logo-circle">JG</div>
           </td>
@@ -24,13 +24,19 @@
           <td>{{ producto.date_release }}</td>
           <td>{{ producto.date_revision }}</td>
         </tr>
-        <tr *ngIf="filteredProductos.length === 0">
+        <tr *ngIf="pagedProductos.length === 0">
           <td colspan="7" class="text-center">No hay datos para mostrar</td>
         </tr>
         </tbody>
       </table>
       <div class="footerTable">
-        <label>{{ filteredProductos.length }} Resultados</label>
+        <label>{{ pagedProductos.length }} Resultados</label>
+        <select [(ngModel)]="pageSize" (change)="onPageSizeChange(pageSize)" class="selector">
+          <option [value]="5">5</option>
+          <option [value]="10">10</option>
+          <option [value]="15">15</option>
+        </select>
+
       </div>
     </div>
   </div>
